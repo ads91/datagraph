@@ -1,0 +1,1 @@
+var OUT = 'out';
