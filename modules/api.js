@@ -4,7 +4,8 @@ var OUT = 'out';
 function connectNodes(connections) {
     // Connect nodes together - each node has a reference to
     // its parent node(s).
-    for (const c in connections) {
+    for (var i=0; i<connections.length; i++) {
+        var c = connections[i];
         c[2].map.push([c[0], c[1], c[3]]);
     }
     return true;
@@ -14,9 +15,9 @@ function getOutput(node, name) {
     // Get output[name] from a node; use recursion to locate
     // the given name (forward propagation).
     while (true) {
-        if ((node.connections.length > 0) && (node.stale || node.cached)) {
+        if ((node.map.length > 0) && (node.stale || !node.cached)) {
             var d = {};
-            for (const c in node.connections) {
+            for (const c of node.map) {
                 d[c[2]] = getOutput(c[0], c[1]);
             }
             return node.calc(d)[name];

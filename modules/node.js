@@ -33,16 +33,16 @@ class Node {
 class ValueNode extends Node {
   constructor(val) {
     super();
-    self.cached = true;
-    self._cache = {OUT: val};
+    this.cached = true;
+    this._cache = {OUT: val};
   }
 
   calc(args) {
-    return self._cache;
+    return this._cache;
   }
 
   set cache(val) {
-    self._cache[OUT] = val;
+    this._cache[OUT] = val;
   }
 }
 
