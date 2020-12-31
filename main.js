@@ -1,5 +1,5 @@
-import {OUT, connectNodes, getOutput} from './modules/api.js'
-import {Node, ValueNode} from './modules/node.js'
+import {OUT, connectNodes, getOutput} from './api.js'
+import {Node, ValueNode} from './node.js'
 
 class AdditionNode extends Node {
 
@@ -9,9 +9,10 @@ class AdditionNode extends Node {
     super();
   }
 
-  calc({}) {
-    console.log(args)
-    return {OUT: args['a'] + args['b']}
+  calc(_ = {a, b}) {
+    console.log('a is: ' + a)
+    console.log('b is: ' + b)
+    return {OUT: a + b}
   }
 }
 
@@ -24,7 +25,8 @@ class PowerNode extends Node {
     this.power = power;
   }
 
-  calc(args) {
+  calc(_ = {x}) {
+    console.log('x is: ' + x)
     return {OUT: Math.pow(args['x'], this.power)};
   }
 }
