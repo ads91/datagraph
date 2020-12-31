@@ -20,6 +20,7 @@ function getOutput(node, name) {
             for (const c of node.map) {
                 d[c[2]] = getOutput(c[0], c[1]);
             }
+            //console.log(d)
             return node.calc(d)[name];
         }
         return node.calc({})[name];

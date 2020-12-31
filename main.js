@@ -9,7 +9,8 @@ class AdditionNode extends Node {
     super();
   }
 
-  calc(args) {
+  calc({}) {
+    console.log(args)
     return {OUT: args['a'] + args['b']}
   }
 }

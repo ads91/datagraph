@@ -35,9 +35,11 @@ class ValueNode extends Node {
     super();
     this.cached = true;
     this._cache = {OUT: val};
+    //console.log(this._cache);
   }
 
   calc(args) {
+    //console.log(args)
     return this._cache;
   }
 
