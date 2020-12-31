@@ -9,10 +9,10 @@ class AdditionNode extends Node {
     super();
   }
 
-  calc(_ = {a, b}) {
+  calc({a, b}) {
     console.log('a is: ' + a)
     console.log('b is: ' + b)
-    return {OUT: a + b}
+    return {OUT: a + b};
   }
 }
 
@@ -25,8 +25,8 @@ class PowerNode extends Node {
     this.power = power;
   }
 
-  calc(_ = {x}) {
-    console.log('x is: ' + x)
+  calc(args) {
+    console.log('x is: ' + arguments[0]['x'])
     return {OUT: Math.pow(args['x'], this.power)};
   }
 }

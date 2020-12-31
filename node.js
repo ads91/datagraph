@@ -8,7 +8,7 @@ class Node {
       this.map = [];  
     }
   
-  calc(args) {
+  calc({}) {
     return {OUT: null};
   }
 
