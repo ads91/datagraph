@@ -2,9 +2,9 @@
 
 ## What is it?
 
-A framework for building data and calculation nodes (or "vertices") and connecting them to one another to form a data/calculation graph.
+A framework for implementing data and calculation nodes (or vertices) and connecting them to one another to form a data/calculation graph.
 
-Requests can then be made to the graph to produce outputs from particular nodes, re-calculating any upstream dependencies in the graph.
+Calculation requests are then made to particular nodes in the graph, re-calculating any upstream dependencies in the graph.
 
 ## Usage
 
