@@ -4,7 +4,7 @@
 
 A framework for implementing data and calculation nodes (vertices) and connecting them to one another to form a data/calculation graph.
 
-Calculation requests are then made to particular nodes in the graph, re-calculating any upstream dependencies in the graph or utilising caching of prior calculation results, if enabled.
+Calculation requests are then made to particular nodes in the graph, re-calculating any upstream nodes or utilising caching of a node's state, if enabled.
 
 ## Usage
 
