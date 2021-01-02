@@ -17,7 +17,7 @@ Make sure to have nodeJS installed on your machine. Navigate to the directory wh
 
 The script example.js outlines an example connection and execution for the following graph.
 
-![Image of Graph](https://github.com/ads91/datagraph/images/example.png)
+![Image of Graph](https://github.com/ads91/datagraph/blob/master/images/example.png)
 
 In example.js we construct a graph consisting of four nodes, these are
 
