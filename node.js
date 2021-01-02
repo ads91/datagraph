@@ -2,14 +2,14 @@ import {OUT} from './api.js'
 
 class Node {
   constructor() {
-      this._stale = true;
-      this._cached = false;
-      this._cache = null;
-      this.map = [];  
-    }
+    this._stale = true;
+    this._cached = false;
+    this._cache = null;
+    this.map = [];  
+  }
   
-  calc({}) {
-    return {OUT: null};
+  calc(...{}) {
+    return {[OUT]: null};
   }
 
   // setters and getters
@@ -34,17 +34,15 @@ class ValueNode extends Node {
   constructor(val) {
     super();
     this.cached = true;
-    this._cache = {OUT: val};
-    //console.log(this._cache);
+    this._cache = {[OUT]: val};
   }
 
-  calc(args) {
-    //console.log(args)
+  calc(...{}) {
     return this._cache;
   }
 
   set cache(val) {
-    this._cache[OUT] = val;
+    this._cache = {[OUT]: val};
   }
 }
 

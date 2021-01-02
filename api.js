@@ -20,10 +20,8 @@ function getOutput(node, name) {
             for (const c of node.map) {
                 d[c[2]] = getOutput(c[0], c[1]);
             }
-            console.log('d0 is ' + d)
-            var r = node.calc(d)[name];
-            console.log('r is ' + r)
-            return r;
+            // var r = node.calc(d)[name];
+            return node.calc(d)[name];
         }
         return node.calc()[name];
     }

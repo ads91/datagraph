@@ -10,9 +10,7 @@ class AdditionNode extends Node {
   }
 
   calc({a, b}) {
-    console.log('a is: ' + a)
-    console.log('b is: ' + b)
-    return {OUT: a + b};
+    return {[OUT]: a + b};
   }
 }
 
@@ -25,9 +23,8 @@ class PowerNode extends Node {
     this.power = power;
   }
 
-  calc(args) {
-    console.log('x is: ' + arguments[0]['x'])
-    return {OUT: Math.pow(args['x'], this.power)};
+  calc({x}) {
+    return {[OUT]: Math.pow(x, this.power)};
   }
 }
 
@@ -47,7 +44,6 @@ var connections = [
   [additionNode, OUT, powerNode, 'x'],
 ];
 // Connect the nodes.
-//console.log(typeof connections[0][0])
 connectNodes(connections)
 // Request the output at the end of the data graph.
 var out = getOutput(powerNode, OUT)
