@@ -38,7 +38,7 @@ When we call getOutput(...) on the most downstream node of the graph (i.e. the i
 
 In this example, we then would expect the following order of execution;
 
-- Value node **V<sub>1</sub>** returns 10 and feeds it in to addition node, **A**, 
-- value node **V<sub>2</sub>** returns 25 and feeds it in to addition node **A**. 
+- Value node **V<sub>1</sub>** returns 10 and feeds it in to addition node, **A**.
+- Value node **V<sub>2</sub>** returns 25 and feeds it in to addition node **A**. 
 - Addition node **A** adds its two inputs and returns 35 which is then fed in to the power node **P**. 
 - Power node **P** takes its input and raises it to the value of 3, returning the value 42,875 to the caller.
