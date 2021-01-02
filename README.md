@@ -2,7 +2,7 @@
 
 ## What is it?
 
-A framework for implementing data and calculation nodes (or vertices) and connecting them to one another to form a data/calculation graph.
+A framework for implementing data and calculation nodes (vertices) and connecting them to one another to form a data/calculation graph.
 
 Calculation requests are then made to particular nodes in the graph, re-calculating any upstream dependencies in the graph.
 
@@ -34,7 +34,7 @@ In the terminal/cmd prompt from which we ran the script, we should have a loggin
 
 This value is obtained by requesting the value associated with the "out" key in out power node's return dictionary.
 
-When we call getOutput(...) on the most downstream node of the graph (i.e. the instance of a power node), internally, we recurse backwards through the graph, until we hit a start node. Once the start node is located, we retrieve its output and pass this into its downstream nodes, calculating each node along the way.
+When we call getOutput(...) on the most downstream node of the graph (i.e. the instance of a power node), internally, we recurse backwards through the graph, until we hit a start node. Once the start node is located, we retrieve its output and pass this into its downstream nodes, calculating each node along the way (unless a node has previously been calculated and cached, in which case it will return the cached state).
 
 In this example, we then would expect the following order of execution;
 
