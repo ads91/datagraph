@@ -21,21 +21,24 @@ The script example.js outlines an example connection and execution for the follo
 
 In example.js we construct a graph consisting of four nodes, these are
 
-- **V_1**: a value node, which simply takes an input value on construction of the node and returns that value when we request the node's output (in thise case, an initial value of 10),
-- **V_2**: another value node, with a different integer value for this example (25),
+- **V<sub>1</sub>**: a value node, which simply takes an input value on construction of the node and returns that value when we request the node's output (in thise case, an initial value of 10),
+- **V<sub>2</sub>**: another value node, with a different integer value for this example (25),
 - **A**: an addition node, a custom node implemented for the purposes of this example, it accepts two inputs and returns the sum of those inputs when we request the output from this node and
 - **P**: a power node, also a custom node for the purposes of this example. On construction of a power node, we provide a numerical value to later be used when the node's calculated. When the node is calculated, it takes one input and raises that input to the power as provided on construction of this node.
 
 If we run example.js as follows
 
-    node example.js
+    $node example.js
 
 In the terminal/cmd prompt from which we ran the script, we should have a logging trace that prints the value 42,875.
 
 This value is obtained by requesting the value associated with the "out" key in out power node's return dictionary.
 
-When we call getOutput(...) on the most downstream node of the graph (i.e. the instance of a power node), internally, we recurse backwards through the graph, until we hit an start node. Once the start node is located, we retrieve its output and pass this into its downstream nodes, calculating each node along the way.
+When we call getOutput(...) on the most downstream node of the graph (i.e. the instance of a power node), internally, we recurse backwards through the graph, until we hit a start node. Once the start node is located, we retrieve its output and pass this into its downstream nodes, calculating each node along the way.
 
 In this example, we then would expect the following order of execution;
 
-Value node V_1 returns 10 and feeds it in to addition node, A, value node V_2 returns 25 and feeds it in to addition node A. Addition node A adds its two inputs and returns 35 which is then fed in to the power node P. The result of the power node is provided to the call to getOutput(...) and this number is 35^3 = 42,875.
+- Value node **V<sub>1</sub>** returns 10 and feeds it in to addition node, **A**, 
+- value node **V<sub>2</sub>** returns 25 and feeds it in to addition node **A**. 
+- Addition node **A** adds its two inputs and returns 35 which is then fed in to the power node **P**. 
+- Power node **P** takes its input and raises it to the value of 3, returning the value 42,875 to the caller.
