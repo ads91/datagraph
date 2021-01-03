@@ -45,5 +45,5 @@ var graph = new Graph(
   ]
 );
 // Request the output at the end of our graph
-//var out = getOutput(powerNode, OUT)
 console.log(graph.getOutput(powerNode, OUT));
+//console.log(graph.getOutput(additionNode, OUT));

@@ -14,10 +14,10 @@ class Node {
   calc(args) {
     var x;
     if (this.cache != null && !this.stale) {
-      // no need to re-calculate if results are cached and node isn't stale
+      console.log('retrieving cache for', this);
       x = this.cache;
     } else {
-      // otherwise, calculate the node, cache it & validate the node
+      console.log('calculating logic for', this);
       x = this.logic(args);
     }
     this.stale = false;

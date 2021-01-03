@@ -33,8 +33,10 @@ class Graph {
     
     invalidateNode(node) {
         // Invalidate a node so the dependency tree recalulates it
-        // next time.
-        return null;
+        // next time - recurse back attempting to match node.
+        while (true) {
+            
+        }
     }
   }
 
