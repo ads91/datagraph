@@ -20,7 +20,6 @@ function getOutput(node, name) {
             for (const c of node.map) {
                 d[c[2]] = getOutput(c[0], c[1]);
             }
-            // var r = node.calc(d)[name];
             return node.calc(d)[name];
         }
         return node.calc()[name];
@@ -30,7 +29,7 @@ function getOutput(node, name) {
 function invalidateNode(node) {
     // Invalidate a node so the dependency tree recalulates it
     // next time.
-    return nill;
+    return null;
 }
 
 export {IN, OUT, connectNodes, getOutput, invalidateNode};
