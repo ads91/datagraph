@@ -2,47 +2,38 @@ import {OUT} from './api.js'
 
 class Node {
   constructor() {
-    this._stale = true;
-    this._cached = false;
-    this._cache = null;
+    this.stale = true;
+    this.cache = null;
     this.map = [];  
   }
   
-  calc(...{}) {
-    return {[OUT]: null};
+  logic(...{}) {
+    throw 'logic method not implemented for this node.';
   }
 
-  // setters and getters
-  get cached() {
-    return this._cached;
-  }
-
-  set cached(val) {
-    this._cached = val;
-  }
-
-  get stale() {
-    return this._stale;
-  }
-
-  set stale(val=true) {
-    this._stale = val;
+  calc(args) {
+    var x;
+    if (this.cache != null && !this.stale) {
+      // no need to re-calculate if results are cached and node isn't stale
+      x = this.cache;
+    } else {
+      // otherwise, calculate the node, cache it & validate the node
+      x = this.logic(args);
+    }
+    this.stale = false;
+    this.cache = x;
+    return x;
   }
 }
 
 class ValueNode extends Node {
   constructor(val) {
     super();
-    this.cached = true;
-    this._cache = {[OUT]: val};
+    this.val = val;
   }
 
-  calc(...{}) {
-    return this._cache;
-  }
-
-  set cache(val) {
-    this._cache = {[OUT]: val};
+  logic(...{}) {
+    return {[OUT]: this.val};
   }
 }
 

@@ -9,7 +9,7 @@ class AdditionNode extends Node {
     super();
   }
 
-  calc({a, b}) {
+  logic({a, b}) {
     return {[OUT]: a + b};
   }
 }
@@ -23,7 +23,7 @@ class PowerNode extends Node {
     this.power = power;
   }
 
-  calc({x}) {
+  logic({x}) {
     return {[OUT]: Math.pow(x, this.power)};
   }
 }
