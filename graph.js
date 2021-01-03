@@ -1,8 +1,8 @@
 class Graph {
 
     constructor(connections) {
-      // connect the graph
-      this.connectNodes(connections);
+        // connect the graph
+        this.connectNodes(connections);
     }
 
     connectNodes(connections) {
@@ -35,7 +35,7 @@ class Graph {
         // Invalidate a node so the dependency tree recalulates it
         // next time - recurse back attempting to match node.
         while (true) {
-            
+            // ...
         }
     }
   }
