@@ -1,9 +1,9 @@
-import {OUT, connectNodes, getOutput} from './api.js'
+import {OUT} from './structs.js'
+import {Graph} from './graph.js'
 import {Node, ValueNode} from './node.js'
 
+// Add two numbers
 class AdditionNode extends Node {
-
-  // Add two numbers.
 
   constructor() {
     super();
@@ -14,9 +14,8 @@ class AdditionNode extends Node {
   }
 }
 
+// Raise a number to a power
 class PowerNode extends Node {
-
-  // Raise a number to a power.
 
   constructor(power=1){
     super();
@@ -28,23 +27,23 @@ class PowerNode extends Node {
   }
 }
 
-// Assemble a dependency graph.
+// Assemble a dependency graph
 var a = 10;
 var b = 25;
 var p = 3;
-// Declare and define our nodes.
+// Declare and define our nodes
 var valueNodeA = new ValueNode(a);
 var valueNodeB = new ValueNode(b);
 var additionNode = new AdditionNode();
 var powerNode = new PowerNode(p); 
-// Define the connectivity between nodes.
-var connections = [
-  [valueNodeA, OUT, additionNode, 'a'],
-  [valueNodeB, OUT, additionNode, 'b'],
-  [additionNode, OUT, powerNode, 'x'],
-];
-// Connect the nodes.
-connectNodes(connections)
-// Request the output at the end of the data graph.
-var out = getOutput(powerNode, OUT)
-console.log(out);
+// Define the connectivity between nodes and instantiate a graph instance
+var graph = new Graph(
+  [
+    [valueNodeA, OUT, additionNode, 'a'],
+    [valueNodeB, OUT, additionNode, 'b'],
+    [additionNode, OUT, powerNode, 'x'],
+  ]
+);
+// Request the output at the end of our graph
+//var out = getOutput(powerNode, OUT)
+console.log(graph.getOutput(powerNode, OUT));

@@ -1,4 +1,4 @@
-import {OUT} from './api.js'
+import {OUT} from './structs.js'
 
 class Node {
   constructor() {
