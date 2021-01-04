@@ -42,3 +42,11 @@ In this example, we then would expect the following order of execution;
 - Value node **V<sub>2</sub>** returns 25 and feeds it in to addition node **A**. 
 - Addition node **A** adds its two inputs and returns 35 which is then fed in to the power node **P**. 
 - Power node **P** takes its input and raises it to the value of 3, returning the value 42,875 (=35<sup>3</sup>) to the caller.
+
+## Future enhancements
+
+1. Replace node.calc(..) method with node(..) method. This would mean forcing the behaviour of the constructor to mimic that of a function, so post-instantiation calls of a node instance's constructor returns the logic/analytics implemented for that node (see https://stackoverflow.com/questions/49279702/calling-class-instance-as-a-function-in-javascript).
+
+2. Implement functionality to swap/substitute nodes between two instances of the same graph but with different state - enabling impact analysis of graphs.
+
+3. Serialisation/de-serialisation of graph instances so that they can be sent and stored then reconstructed back to their original state.
