@@ -2,29 +2,25 @@ import {OUT} from './structs.js'
 
 class Node {
 
-  instantiated = false;
-
   constructor(args) {
-    if (this.instantiated) {
-      // Make an instance's constructor behave like a non-static/member method
-      return this.calc(args);;
-    }
     this.instantiated = true;
     this.stale = true;
     this.cache = null;
-    this.dependents = [];  
+    this.dependents = [];
   }
   
   logic(args) {
-    throw 'logic method not implemented for this node.';
+    throw 'logic method not implemented for this node';
   }
 
   calc(args) {
-    var x;
+    var x = null;
     if (this.cache != null && !this.stale) {
+      // Get from cache
       console.log('retrieving cache for', this);
       x = this.cache;
     } else {
+      // Calculate as no cache storage/node's stale
       console.log('calculating logic for', this);
       x = this.logic(args);
     }
