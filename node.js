@@ -1,13 +1,21 @@
 import {OUT} from './structs.js'
 
 class Node {
-  constructor() {
+
+  instantiated = false;
+
+  constructor(args) {
+    if (this.instantiated) {
+      // Make an instance's constructor behave like a non-static/member method
+      return this.calc(args);;
+    }
+    this.instantiated = true;
     this.stale = true;
     this.cache = null;
-    this.map = [];  
+    this.dependents = [];  
   }
   
-  logic(...{}) {
+  logic(args) {
     throw 'logic method not implemented for this node.';
   }
 
@@ -32,7 +40,7 @@ class ValueNode extends Node {
     this.val = val;
   }
 
-  logic(...{}) {
+  logic(args) {
     return {[OUT]: this.val};
   }
 }
