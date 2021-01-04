@@ -44,6 +44,9 @@ var graph = new Graph(
     [additionNode, OUT, powerNode, 'x'],
   ]
 );
-// Request the output at the end of our graph
+// Request the output at the end of our graph (all upstream nodes must calculate  
+// then cache results - see see logs)
 console.log(graph.getOutput(powerNode, OUT));
-//console.log(graph.getOutput(additionNode, OUT));
+// Request output from the penultimate node of our graph (upstream nodes don't 
+// calculate, they return cache results instead - see logs)
+console.log(graph.getOutput(additionNode, OUT));
