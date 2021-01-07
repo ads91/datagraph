@@ -4,7 +4,7 @@
 
 A framework for implementing data and calculation nodes (vertices) and connecting them to one another to form a data/calculation graph.
 
-Calculation requests are then made to particular nodes in the graph, re-calculating any upstream nodes or utilising caching of a node's state, if enabled.
+Calculation requests are then made to particular nodes in the graph, re-calculating any upstream nodes or utilising caching of a node's state.
 
 ## Usage
 
@@ -21,10 +21,10 @@ The script example.js outlines an example connection and execution for the follo
 
 In example.js we construct a graph consisting of four nodes, these are
 
-- **V<sub>1</sub>**: a value node, which simply takes an input value on construction of the node and returns that value when we request the node's output (in thise case, an initial value of 10),
-- **V<sub>2</sub>**: another value node, with a different integer value for this example (25),
+- **V<sub>1</sub>**: a value node, which simply takes an input value on construction of the node and returns that value when we request the node's output (in this case, an initial value of 10),
+- **V<sub>2</sub>**: another value node, with an integer value (25 for this example),
 - **A**: an addition node, a custom node implemented for the purposes of this example, it accepts two inputs and returns the sum of those inputs when we request the output from this node and
-- **P**: a power node, also a custom node for the purposes of this example. On construction of a power node, we provide a numerical value to later be used when the node's calculated. When the node is calculated, it takes one input and raises that input to the power as provided on construction of this node.
+- **P**: a power node, another custom node for the purposes of this example. On construction of a power node, we provide a numerical value to later be used when the node's calculated. When the node is calculated, it takes one input and raises that input to the power as provided on construction of this node.
 
 If we run example.js as follows
 
@@ -36,7 +36,7 @@ This value is obtained by requesting the value associated with the "out" key in 
 
 When we call getOutput(...) on the most downstream node of the graph (i.e. the instance of a power node), internally, we recurse backwards through the graph, until we hit a start node. Once the start node is located, we retrieve its output and pass this into its downstream nodes, calculating each node along the way (unless a node has previously been calculated and cached, in which case it will return the cached state).
 
-In this example, we then would expect the following order of execution;
+In this example, we then would expect the following order of execution:
 
 - Value node **V<sub>1</sub>** returns 10 and feeds it in to addition node, **A**.
 - Value node **V<sub>2</sub>** returns 25 and feeds it in to addition node **A**. 
