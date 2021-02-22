@@ -10,7 +10,7 @@ Calculation requests are then made to particular nodes in the graph, re-calculat
 
 Make sure to have nodeJS installed on your machine. Navigate to the directory which you'd like to clone the repo in terminal/cmd prompt and clone the repo:
 
-    $git clone https://github.com/ads91/datagraph.git
+    git clone https://github.com/ads91/datagraph.git
 
 
 ## Example
@@ -28,7 +28,7 @@ In example.js we construct a graph consisting of four nodes, these are
 
 If we run example.js as follows
 
-    $node example.js
+    node example.js
 
 In the terminal/cmd prompt from which we ran the script, we should have a logging trace that prints the value 42,875.
 
